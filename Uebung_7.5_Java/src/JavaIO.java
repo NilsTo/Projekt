@@ -22,7 +22,7 @@ public class JavaIO {
 		File datei2 = new File("C:\\neueDatei.txt");
 		int anzahlZeilen = 0;
 		int charsZeile = 0;
-		String Text = "gjhg = kjh  ";
+		String Text = "=jhg 5 kjh  ";
 		try {
 			FileReader dateileser = new FileReader(datei2);
 			BufferedReader einleser = new BufferedReader(dateileser);
@@ -43,7 +43,7 @@ public class JavaIO {
 		System.out.println(auswertung(Text));
 	}
 	public static boolean auswertung(String zeile){
-		for (int i = 1; i <= zeile.length();i++){
+		for (int i = 0; i < zeile.length();i++){
 			if (zeile.charAt(i) == '='){
 				return true;
 			}
