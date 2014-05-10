@@ -19,40 +19,50 @@ public class JavaIO {
 		// } catch (FileNotFoundException e){
 		// System.out.println(e.getMessage());
 		// }
-		File datei2 = new File("C:\\neueDatei.txt");
-		int anzahlZeilen = 0;
-		int charsZeile = 0;
+		// File datei2 = new File("C:\\neueDatei.txt");
+		// int anzahlZeilen = 0;
+		// int charsZeile = 0;
 		String Text = "=jhg=5====k==j==h  ";
+		// try {
+		// FileReader dateileser = new FileReader(datei2);
+		// BufferedReader einleser = new BufferedReader(dateileser);
+		// while (einleser.ready()) {
+		// String zeile = einleser.readLine();
+		// System.out.println(zeile);
+		// anzahlZeilen++;
+		// charsZeile += zeile.length();
+		// }
+		// einleser.close();
+		// } catch (FileNotFoundException e) {
+		// System.out.println("Datei nicht gefunden" + e.getMessage());
+		// } catch (IOException e) {
+		// System.out.println("Fehler im Modul");
+		// }
+		// System.out.println((charsZeile / anzahlZeilen));
+		// System.out.println(anzahlZeilen);
+		// System.out.println(Text);
+		// System.out.println(löschen(Text));
+		Printer drucker = new Printer();
+		
 		try {
-			FileReader dateileser = new FileReader(datei2);
-			BufferedReader einleser = new BufferedReader(dateileser);
-			while (einleser.ready()) {
-				String zeile = einleser.readLine();
-				System.out.println(zeile);
-				anzahlZeilen++;
-				charsZeile += zeile.length();
-			}
-			einleser.close();
+			drucker.dateiSchreiben(Text, drucker.dateiErstellen("C:\\Users\\Nils\\Desktop", "test"));
 		} catch (FileNotFoundException e) {
-			System.out.println("Datei nicht gefunden" + e.getMessage());
-		} catch (IOException e) {
-			System.out.println("Fehler im Modul");
+			System.out.println(e.getMessage());
 		}
-		System.out.println((charsZeile / anzahlZeilen));
-		System.out.println(anzahlZeilen);
-		System.out.println(Text);
-		System.out.println(löschen(Text));
+
 	}
-	public static boolean auswertung(char buchstabe){
-			if (buchstabe == '='){
-				return false;
-			}
+
+	public static boolean auswertung(char buchstabe) {
+		if (buchstabe == '=') {
+			return false;
+		}
 		return true;
 	}
-	public static String löschen(String text){
+
+	public static String löschen(String text) {
 		String neuertext = "";
-		for (int i = 0;i<text.length();i++){
-			if ( auswertung(text.charAt(i))){
+		for (int i = 0; i < text.length(); i++) {
+			if (auswertung(text.charAt(i))) {
 				neuertext = neuertext + text.charAt(i);
 			}
 		}
