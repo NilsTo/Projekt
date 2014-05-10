@@ -10,6 +10,7 @@ public class Datenerfassung {
 		System.out.println(mittelwert(Zahlen));
 		System.out.println(geomittel(Zahlen));
 		System.out.println(aussortieren(Zahlen, mittelwert(Zahlen), geomittel(Zahlen)));
+		System.out.println(aussortieren(Zahlen, mittelwert(Zahlen), geomittel(Zahlen)).size());
 
 	}
 

@@ -22,7 +22,7 @@ public class JavaIO {
 		File datei2 = new File("C:\\neueDatei.txt");
 		int anzahlZeilen = 0;
 		int charsZeile = 0;
-		String Text = "=jhg 5 kjh  ";
+		String Text = "=jhg=5====k==j==h  ";
 		try {
 			FileReader dateileser = new FileReader(datei2);
 			BufferedReader einleser = new BufferedReader(dateileser);
@@ -40,14 +40,22 @@ public class JavaIO {
 		}
 		System.out.println((charsZeile / anzahlZeilen));
 		System.out.println(anzahlZeilen);
-		System.out.println(auswertung(Text));
+		System.out.println(Text);
+		System.out.println(löschen(Text));
 	}
-	public static boolean auswertung(String zeile){
-		for (int i = 0; i < zeile.length();i++){
-			if (zeile.charAt(i) == '='){
-				return true;
+	public static boolean auswertung(char buchstabe){
+			if (buchstabe == '='){
+				return false;
+			}
+		return true;
+	}
+	public static String löschen(String text){
+		String neuertext = "";
+		for (int i = 0;i<text.length();i++){
+			if ( auswertung(text.charAt(i))){
+				neuertext = neuertext + text.charAt(i);
 			}
 		}
-		return false;
+		return neuertext;
 	}
 }
