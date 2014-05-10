@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import javax.swing.JOptionPane;
+
 public class JavaIO {
 
 	public static void main(String[] args) {
@@ -43,9 +45,10 @@ public class JavaIO {
 		// System.out.println(Text);
 		// System.out.println(löschen(Text));
 		Printer drucker = new Printer();
-		
 		try {
-			drucker.dateiSchreiben(Text, drucker.dateiErstellen("C:\\Users\\Nils\\Desktop", "test"));
+			drucker.dateiSchreiben(Text, drucker.dateiErstellen(drucker
+					.dateipfaderstellen(JOptionPane
+							.showInputDialog("Gib den Daeipfad ein")), "test"));
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
 		}
